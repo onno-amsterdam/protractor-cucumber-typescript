@@ -4,9 +4,9 @@
   "description": "Starter kit for a Protractor & Cucumber project in Typescript",
   "main": "index.js",
   "scripts": {
-    "tsc" : "tsc",
+    "tsc": "tsc",
     "wd:start": "webdriver-manager update && webdriver-manager start",
-    "test": "protractor protractor.cucumber.conf.js",
+    "test": "tsc && protractor protractor.cucumber.conf.js",
     "e2e": "tsc && ts-node child_process.ts"
   },
   "author": "Onno van Piggelen",
@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@types/cucumber": "^6.0.1",
-    "@types/node": "^13.7.0"
+    "@types/node": "^13.7.0",
+    "allure-cucumberjs": "^2.0.0-beta.6"
   }
 }

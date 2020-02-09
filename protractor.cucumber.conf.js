@@ -1,3 +1,4 @@
+const Reporter = require("./features/support/reporter.js");
 
 exports.config = {
     // framework settings
@@ -22,8 +23,8 @@ exports.config = {
     // Spec patterns are relative to this directory.
     cucumberOpts: {
         require: [
-            'features/tsc-out/steps/**/*.steps.ts',
-            'features/tsc-out/support/**/*.ts',
+            'features/tsc-out/steps/**/*.steps.js',
+            'features/tsc-out/support/**/*.js',
         ],
         tags: false,
     },

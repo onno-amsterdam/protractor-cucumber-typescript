@@ -1,2 +1,5 @@
 # node-modules
 node_modules
+
+# tsc-out
+features/tsc-out
