@@ -4,15 +4,22 @@
   "description": "Starter kit for a Protractor & Cucumber project in Typescript",
   "main": "index.js",
   "scripts": {
-    "tsc": "tsc",
+    "allure:generate:report": "node ./node_modules/allure-commandline/bin/allure generate ./out/allure-results -o ./out/allure-html-report --clean",
+    "allure:open:report": "node ./node_modules/allure-commandline/bin/allure open ./out/allure-html-report",
+    "allure:report": "npm run allure:generate:report && npm run allure:open:report",
     "wd:start": "webdriver-manager update && webdriver-manager start",
-    "test": "tsc && protractor protractor.cucumber.conf.js",
-    "e2e": "tsc && ts-node child_process.ts"
+    "test": "protractor protractor.cucumber.conf.js",
+    "e2e": "npm run test && npm run allure:report"
   },
   "author": "Onno van Piggelen",
   "license": "MIT",
   "devDependencies": {
+    "@types/chai": "^4.2.8",
+    "allure-commandline": "^2.13.0",
+    "allure-cucumberjs": "^2.0.0-beta.6",
+    "chai": "^4.2.0",
     "cucumber": "^6.0.5",
+    "cucumber-pretty": "^6.0.0",
     "protractor": "^5.4.3",
     "protractor-cucumber-framework": "^6.2.0",
     "ts-node": "^8.6.2",
@@ -20,7 +27,6 @@
   },
   "dependencies": {
     "@types/cucumber": "^6.0.1",
-    "@types/node": "^13.7.0",
-    "allure-cucumberjs": "^2.0.0-beta.6"
+    "@types/node": "^13.7.0"
   }
 }

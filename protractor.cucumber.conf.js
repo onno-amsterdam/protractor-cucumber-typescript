@@ -1,4 +1,4 @@
-const Reporter = require("./features/support/reporter.js");
+const path = require('path');
 
 exports.config = {
     // framework settings
@@ -23,10 +23,14 @@ exports.config = {
     // Spec patterns are relative to this directory.
     cucumberOpts: {
         require: [
-            'features/tsc-out/steps/**/*.steps.js',
-            'features/tsc-out/support/**/*.js',
+            'features/steps/**/*.steps.ts',
+            'features/support/**/*.ts',            
         ],
-        tags: false,
+        tags: "@data-tables",
+        format: [
+            require.resolve('cucumber-pretty'),
+            //'features/support/reporter.ts',
+        ],
     },
     
     // specify the path to the feature files
@@ -36,5 +40,8 @@ exports.config = {
 };
 
 async function onPrepare() {
+    require('ts-node').register({
+        project: path.join(__dirname, './tsconfig.json'),
+      });
     await browser.manage().timeouts().implicitlyWait(3000);
 }
