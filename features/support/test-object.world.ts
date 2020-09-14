@@ -1,5 +1,4 @@
 import { Logger } from './logger';
-Logger.info('TestObject initiated!');
 
 export class TestObject {
     private static objectName: string = 'initialExperienceName';
