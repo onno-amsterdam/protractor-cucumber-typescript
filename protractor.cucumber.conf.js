@@ -20,7 +20,7 @@ exports.config = {
     },
 
     // base url if application under test is running locally
-    baseURL: 'http://localhost:8764/',
+    baseUrl: 'http://localhost:8764/',
     
     // Spec patterns are relative to this directory.
     cucumberOpts: {
@@ -28,7 +28,7 @@ exports.config = {
             'features/steps/**/*.steps.ts',
             'features/support/**/*.ts',            
         ],
-        tags: "@scenario-outline",
+        tags: "@local-file",
         format: [
             require.resolve('cucumber-pretty'),
             //'features/support/reporter.ts',
