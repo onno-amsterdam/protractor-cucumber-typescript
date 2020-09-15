@@ -28,6 +28,13 @@ Given('I use a step with following data with headers hashes:', function (dataTab
             console.log(element[index]);
         }
     });
+
+    // another way of looping through a table is as such
+    // this can prevent the test running to the loop to fast
+    for (const index of Object.keys(dataHash)) {
+        console.log(index);
+        console.log((dataHash[index]));
+    }
     
     return true;
 });

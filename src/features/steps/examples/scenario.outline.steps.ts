@@ -1,5 +1,5 @@
 import {Given, When, Then} from 'cucumber';
-import { Logger } from '../support/logger';
+import { Logger } from '../../support/logger';
 
 Given('I start a test with {string}', function (message: string) { 
     return Logger.info(message);

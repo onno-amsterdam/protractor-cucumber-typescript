@@ -20,15 +20,15 @@ exports.config = {
     },
 
     // base url if application under test is running locally
-    baseUrl: 'http://localhost:8764/',
+    baseUrl: 'http://localhost:8080/',
     
     // Spec patterns are relative to this directory.
     cucumberOpts: {
         require: [
-            'features/steps/**/*.steps.ts',
-            'features/support/**/*.ts',            
+            'src/features/steps/**/*.steps.ts',
+            'src/features/support/**/*.ts',            
         ],
-        tags: "@local-file",
+        tags: "~DISABLED",
         format: [
             require.resolve('cucumber-pretty'),
             //'features/support/reporter.ts',
@@ -36,7 +36,7 @@ exports.config = {
     },
     
     // specify the path to the feature files;
-    specs: ['features/**/*.feature'],
+    specs: ['src/features/**/*.feature'],
     
     onPrepare,
 };
