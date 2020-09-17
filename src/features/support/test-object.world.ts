@@ -1,7 +1,7 @@
 import { Logger } from './logger';
 
 export class TestObject {
-    private static objectName: string = 'initialExperienceName';
+    private static objectName: string = 'testObjectNotNamed';
     public static created: boolean = false;
 
     static setRandomName() {

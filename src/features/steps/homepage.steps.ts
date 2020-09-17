@@ -1,6 +1,6 @@
 import { Given } from "cucumber";
 import { openHomePage } from "../../helpers/navigation.helpers";
-import { HomePage } from "../../page-objects/homepage.po";
+import { HomePage } from "../../page-objects/homepage/homepage.po";
 import { expect } from "chai";
 
 const homePage = new HomePage();

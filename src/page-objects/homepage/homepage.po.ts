@@ -1,4 +1,6 @@
-import { Header, MenuLeft, MenuRight, AreaCenter, Footer } from "./homepage";
+import { Footer } from "../footer/footer.po";
+import { Header } from "../header/header.po";
+import { MenuLeft, MenuRight, AreaCenter } from "./homepage.objects";
 
 export class HomePage {
     public readonly header = new Header();
