@@ -1,6 +1,6 @@
 Feature: data table in scenario step
 
-    In a scenario step multiple data input can be used. A data table is passed to the step definition.
+    Description: in a scenario step multiple data input can be used. A data table is passed to the step definition.
 
     @data-tables
     Scenario: use data tables in step
