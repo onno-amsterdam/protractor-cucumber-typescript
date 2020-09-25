@@ -14,7 +14,7 @@ pipeline {
                         
                     steps {
                         sleep(5)
-                        sh './node_modules/.bin/protractor protractor.cucumber.conf.js'
+                        sh 'protractor protractor.cucumber.conf.js'
                     }
 
 
