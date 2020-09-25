@@ -13,6 +13,7 @@ pipeline {
         stage ('run protractor tests') {
                         
                     steps {
+                        sh './node_modules/.bin/webdriver-manager update --versions.chrome 77.0.3865.75 --gecko=false'
                         sh './node_modules/.bin/protractor protractor.cucumber.conf.js'
                     }
 
