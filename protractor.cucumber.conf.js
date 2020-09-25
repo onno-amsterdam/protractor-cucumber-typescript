@@ -1,4 +1,5 @@
 const path = require('path');
+const chromeConfig = require('./src/config/chrome.config');
 
 exports.config = {
     // framework settings
@@ -18,6 +19,16 @@ exports.config = {
         // set the options for the browser
         'chromeOptions': {}
     },
+
+    capabilities: chromeConfig.capabilities,
+    chromeDriver: chromeConfig.chromeDriver,
+    directConnect: true,
+    
+    // disables the promise manager and allows for the use of async/await
+    SELENIUM_PROMISE_MANAGER: false,
+    
+    // make sure the test keep running after a failure
+    ignoreUncaughtExceptions: true,
 
     // base url if application under test is running locally
     baseUrl: 'http://localhost:8081/',
