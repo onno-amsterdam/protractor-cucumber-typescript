@@ -27,7 +27,9 @@ This project describes in basic functionalities of Cucumber, with examples of us
 * the use of scenario-outlines; 
 
 #### Run Protractor tests in Jenkins
-Setup Jenkins with NodeJs plugin
+Setup Jenkins with NodeJs plugin;
+Configure NodeJs in the Global Tools;
+Setup Jenkins with the chromeDriver plugin;
 
 ### To do: 
 1. use ts-node so the typescript files don't have to be compiled to javascript (DONE);

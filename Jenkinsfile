@@ -16,7 +16,7 @@ pipeline {
                 stage ('start webdriver') {
                     steps {
                         echo 'Temp not starting the chromedriver'
-                        // sh './node_modules/.bin/webdriver-manager update && ./node_modules/.bin/webdriver-manager start'
+                        sh './node_modules/.bin/webdriver-manager clean && ./node_modules/.bin/webdriver-manager update'
                     }
                 }
                 stage ('run tests') {
