@@ -31,14 +31,14 @@ exports.config = {
         tags: "~DISABLED",
         format: [
             require.resolve('cucumber-pretty'),
-            'src/features/support/reporter.ts',
+            `json:${process.cwd()}/cucumber_reports/report.json`,  
         ],
     },
     
     // specify the path to the feature files;
     specs: ['src/features/**/*.feature'],
-    
     onPrepare,
+    onCleanUp,
 };
 
 async function onPrepare() {
@@ -48,4 +48,21 @@ async function onPrepare() {
       });
     // this timeout is used to specify the amount of time the driver should wait while searching for an element if it is not immediately present. 
     await browser.manage().timeouts().implicitlyWait(3000);
-}
+};
+
+/**
+ * The onCleanUp function creates an html report of the test execution.
+ */
+async function onCleanUp() {
+    const reporter = require('cucumber-html-reporter');
+    const options = {
+              theme: 'bootstrap',
+              jsonFile: './cucumber_reports/report.json',
+              output: `./cucumber_reports/test_results.html`,
+              reportSuiteAsScenarios: true,
+              launchReport: true,
+            };
+    reporter.generate(options);
+  };
+
+

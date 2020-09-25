@@ -1,10 +1,11 @@
-import { AfterAll, BeforeAll, setDefaultTimeout, After } from 'cucumber';
+import { AfterAll, BeforeAll, setDefaultTimeout, After, Status } from 'cucumber';
 import { Logger } from './logger';
 import { TestObject } from './test-object.world';
 import { browser } from 'protractor';
 
 // BeforeAll runs once before all the scenarios are run;
 // It can be used to bring the test into a certain state;
+
 BeforeAll(async () => {
     setDefaultTimeout(60000);
 
@@ -16,10 +17,19 @@ BeforeAll(async () => {
     Logger.initiate(`the initial name of the test object: ${initialTestObjectName}`);
 });
 
-After(async () => {
+After(async function (scenarioResult) {
+    let self = this;
+    if (scenarioResult.result.status === Status.FAILED) {
+    return browser.takeScreenshot()
+        .then(function (screenshot) {
+            // fix deprecated class
+            const decodedImage = new Buffer(screenshot.replace(/^data:image\/png;base64,/, ''), 'base64');
+            self.attach(decodedImage, 'image/png');
+        });
+    };
     // only sleep for development and debugging
     await browser.sleep(5000);
-})
+});
 
 // AfterAll runs once after all the scenarios are run;
 // It can be used to clean up the test environment for example;
