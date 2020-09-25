@@ -6,8 +6,12 @@ exports.config = {
     framework: "custom",
     frameworkPath: require.resolve("protractor-cucumber-framework"),
     
-    // selenium address when using local running webdriver
-    seleniumAddress: "http://localhost:4444/wd/hub",
+    /**
+     * Selenium address when using local running webdriver. This address is not needed
+     * when using directConnect.
+     */ 
+    // seleniumAddress: "http://localhost:4444/wd/hub",
+
     // tells protractor how long to wait for a page to load
     getPageTimeout: 60000,
     // the timeout in milliseconds for each script run on the browser
