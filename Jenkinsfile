@@ -11,21 +11,14 @@ pipeline {
             }
         }
         stage ('run protractor tests') {
-            // stages need to run in parallel as the webdriver needs to run simultaniously with the tests
-            parallel {
-                stage ('start webdriver') {
-                    steps {
-                        echo 'Temp not starting the chromedriver'
-                        sh './node_modules/bin/webdriver-manager clean && ./node_modules/bin/webdriver-manager update'
-                    }
-                }
+                        
                 stage ('run tests') {
                     steps {
                         sleep(5)
-                        sh './node_modules/bin/protractor protractor.cucumber.conf.js'
+                        sh './node_modules/.bin/protractor protractor.cucumber.conf.js'
                     }
                 }
-            }
+
         }
     }
 }
