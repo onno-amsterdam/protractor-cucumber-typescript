@@ -15,5 +15,6 @@ pipeline {
             steps {
                 sh 'protractor protractor.conf.js'
             }
+        }
     }
 }
