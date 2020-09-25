@@ -10,14 +10,19 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage ('start webdriver') {
-            steps {
-                sh './node_modules/.bin/webdriver-manager update && ./node_modules/.bin/webdriver-manager start'
-            }
-        }
-        stage ('run tests') {
-            steps {
-                sh './node_modules/.bin/protractor protractor.conf.js'
+        stage ('run protractor tests') {
+            // stages need to run in parallel as the webdriver needs to run simultaniously with the tests
+            parallel {
+                stage ('start webdriver') {
+                    steps {
+                        sh './node_modules/.bin/webdriver-manager update && ./node_modules/.bin/webdriver-manager start'
+                    }
+                }
+                stage ('run tests') {
+                    steps {
+                        sh './node_modules/.bin/protractor protractor.conf.js'
+                    }
+                }
             }
         }
     }
