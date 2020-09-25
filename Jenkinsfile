@@ -1,11 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage ('initial stage') {
+        stage ('install dependencies') {
             steps {
-                echo 'Hello World!'
-                sh 'ls'
+                sh 'npm install'
             }
         }
+        stage ('start webdriver') {
+            steps {
+                sh 'webdriver-manager update && webdriver-manager start'
+            }
+        }
+        stage ('run tests') {
+            steps {
+                sh 'protractor protractor.conf.js'
+            }
     }
 }

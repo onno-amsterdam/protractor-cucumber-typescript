@@ -26,5 +26,8 @@ This project describes in basic functionalities of Cucumber, with examples of us
 * the use of data-tables;
 * the use of scenario-outlines; 
 
+#### Run Protractor tests in Jenkins
+Setup Jenkins
+
 ### To do: 
 1. use ts-node so the typescript files don't have to be compiled to javascript (DONE);
