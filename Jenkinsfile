@@ -15,7 +15,7 @@ pipeline {
             parallel {
                 stage ('start webdriver') {
                     steps {
-                        sh 'Temp not starting the chromedriver'
+                        echo 'Temp not starting the chromedriver'
                         // sh './node_modules/.bin/webdriver-manager update && ./node_modules/.bin/webdriver-manager start'
                     }
                 }
