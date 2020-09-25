@@ -20,6 +20,7 @@ pipeline {
                 }
                 stage ('run tests') {
                     steps {
+                        sleep(5)
                         sh './node_modules/.bin/protractor protractor.cucumber.conf.js'
                     }
                 }
