@@ -20,7 +20,7 @@ pipeline {
                 }
                 stage ('run tests') {
                     steps {
-                        sh './node_modules/.bin/protractor protractor.conf.js'
+                        sh './node_modules/.bin/protractor protractor.cucumber.conf.js'
                     }
                 }
             }
