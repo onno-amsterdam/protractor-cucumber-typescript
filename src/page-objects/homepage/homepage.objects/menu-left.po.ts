@@ -6,4 +6,8 @@ export class MenuLeft {
     public readonly menuItems: ElementArrayFinder = this.table.$$('td');
             
     constructor(public readonly rootElement = $('.menuLeftContainer')) {}
+
+    public async getAllMenuItems(): Promise<ElementFinder[]> {
+        return this.menuItems;
+    }
 }
