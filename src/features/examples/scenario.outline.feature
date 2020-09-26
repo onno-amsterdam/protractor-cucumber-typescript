@@ -8,7 +8,7 @@ Feature: feature for testing by example with the scenario outline
         Given I start a test with "TESTING!"
 
     # scenario-template is a synonym for outline 
-    @scenario-outline
+    @scenario-outline @EXAMPLE
     Scenario Outline: describe a features functionality with scenario outline
         Given I start with the state "<start-state>"
         When I click button "<button>"

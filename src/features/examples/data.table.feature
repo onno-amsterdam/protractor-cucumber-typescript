@@ -2,7 +2,7 @@ Feature: data table in scenario step
 
     Description: in a scenario step multiple data input can be used. A data table is passed to the step definition.
 
-    @data-tables
+    @data-tables @EXAMPLE
     Scenario: use data tables in step
         # hashes hashes the dataTable into an array of objects with headers
         Given I use a step with following data with headers hashes:

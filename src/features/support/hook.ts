@@ -5,9 +5,8 @@ import { browser } from 'protractor';
 
 // BeforeAll runs once before all the scenarios are run;
 // It can be used to bring the test into a certain state;
-
 BeforeAll(async () => {
-    setDefaultTimeout(60000);
+    setDefaultTimeout(600000);
 
     /** If page is not Protractor set to false - Protractor will now not wait for $http and $timeouts to finish  */
     browser.waitForAngularEnabled(false);

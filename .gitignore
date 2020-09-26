@@ -4,5 +4,5 @@ node_modules
 # tsc-out
 features/tsc-out
 
-# reporting
-cucumber_reports
+# reports
+cucumber_reports/*

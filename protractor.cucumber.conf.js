@@ -34,24 +34,30 @@ exports.config = {
     // make sure the test keep running after a failure
     ignoreUncaughtExceptions: true,
 
-    // base url if application under test is running locally
+    // base url if application under test - test website runs in docker accessible through this address
     baseUrl: 'http://localhost:8081/',
     
+    // specify the path to the feature files;
+    specs: ['src/features/**/*.feature'],
+
     // Spec patterns are relative to this directory.
     cucumberOpts: {
         require: [
             'src/features/steps/**/*.steps.ts',
             'src/features/support/**/*.ts',            
         ],
-        tags: "~DISABLED",
+        tags: [
+            "~DISABLED",
+            "~@EXAMPLE",
+        ],
         format: [
+            // prints the cucumber steps to the console
             require.resolve('cucumber-pretty'),
+            // the location of the json report - used to generate html report from
             `json:${process.cwd()}/cucumber_reports/report.json`,  
         ],
     },
-    
-    // specify the path to the feature files;
-    specs: ['src/features/**/*.feature'],
+        
     onPrepare,
     onCleanUp,
 };

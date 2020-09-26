@@ -5,3 +5,7 @@ export async function getAlertText() {
 
     return alertDialog.getText();
 }
+
+export async function closeAlert() {
+    return await browser.switchTo().alert().accept();
+}

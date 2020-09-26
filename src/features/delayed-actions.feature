@@ -20,3 +20,4 @@ Feature: delayed actions
         When I select "showAlertOption" from the delayed actions dropdown
         Then the alert is shown in the browser
         And the alert reads text "This is an alert!"
+        Then I close the alert
