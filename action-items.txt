@@ -1,9 +1,0 @@
-FILE TO BE REMOVED BEFORE PUBLICATION
-- menu-items-feature scenario one;      DONE
-- menu-items-feature scenario two;      DONE
-- menu-items-feature scenario three;    DONE
-- menu-items-feature scenario four;     DONE
-- reporting; DONE
-- image when failed; DONE 
-- jenkins implementation;
-- check if elements are displayed alphabettical (man-core-ang);
