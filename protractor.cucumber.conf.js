@@ -91,6 +91,6 @@ async function onCleanUp() {
               launchReport: true,
             };
     reporter.generate(options);
-  };
+};
 
 
