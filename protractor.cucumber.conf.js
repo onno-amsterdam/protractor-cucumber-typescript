@@ -40,6 +40,13 @@ exports.config = {
     // specify the path to the feature files;
     specs: ['src/features/**/*.feature'],
 
+    // runs all test by default, run commmand with --suite="" to run specific suite
+    suites: {
+        homepage: [
+          'src/features/homepage.feature',
+        ],
+      },
+
     // Spec patterns are relative to this directory.
     cucumberOpts: {
         require: [
