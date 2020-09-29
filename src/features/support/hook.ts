@@ -18,6 +18,12 @@ BeforeAll(async () => {
 
 After(async function (scenarioResult) {
     let self = this;
+
+    // try and close an alert if it's open. This prevents a failure to block all following tests
+    try {
+        await browser.switchTo().alert().dismiss();
+    } catch {}
+
     if (scenarioResult.result.status === Status.FAILED) {
     return browser.takeScreenshot()
         .then(function (screenshot) {
@@ -26,8 +32,6 @@ After(async function (scenarioResult) {
             self.attach(decodedImage, 'image/png');
         });
     };
-    // only sleep for development and debugging
-    await browser.sleep(5000);
 });
 
 // AfterAll runs once after all the scenarios are run;

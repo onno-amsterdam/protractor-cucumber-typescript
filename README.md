@@ -34,6 +34,12 @@ This project describes in basic functionalities of Cucumber, with examples of us
 * the use of data-tables;
 * the use of scenario-outlines; 
 
+#### VSCode Cucumber Plugin
+To help development of Cucumber feature files and the code underneath the IDE VSCode has a great plugin available: [Cucumber (Gherkin) Full Support](https://marketplace.visualstudio.com/items?itemName=alexkrechik.cucumberautocomplete). This plugin allows for (among other things): 
+* autocomplete of steps when writing features;
+* navigation to step definitions;
+* highlighting of missing step definitions;
+
 ### Html reporting
 The project uses a cucumber plugin to generate an html report of all the test features and scenarios run and their result. For each failed scenario a screenshot of the browser is added to the report. More on the plugin used see the [cucumber-html-reporter](https://www.npmjs.com/package/cucumber-html-reporter) npm package page.
 

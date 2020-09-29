@@ -2,11 +2,12 @@ import { expect } from "chai";
 import { Given } from "cucumber";
 import { ElementFinder } from "protractor";
 import { HomePage } from "../../page-objects/homepage/homepage.po";
+import { BlueButton } from "../../page-objects/buttons/bluebutton.po" 
 
 const menuLeft = new HomePage().menuLeft;
 
 Given('each menu item has a {string} attribute {string}', async function (attributeName: string, expectedAttributeValue: string) {
-    const menuItems: ElementFinder[] = await menuLeft.getAllMenuItems();
+    const menuItems: ElementFinder[] = await menuLeft.menuItem.getAllMenuItems();
 
     for (const item of menuItems) {
         const actualAttributeValue = await item.getAttribute(attributeName);
@@ -19,7 +20,7 @@ Given('each menu item has a {string} attribute {string}', async function (attrib
 
 Given('I see the menu-items in the left menu with text:', async function (dataTable) {
     const dataHash = dataTable.hashes();
-    const menuItems: ElementFinder[] = await menuLeft.getAllMenuItems();
+    const menuItems: ElementFinder[] = await menuLeft.menuItem.getAllMenuItems();
 
     for (const index of Object.keys(dataHash)) {
         const menuItem = menuItems[Number(index)];
@@ -27,8 +28,8 @@ Given('I see the menu-items in the left menu with text:', async function (dataTa
         const expectedHeaderText = dataHash[index]['header'];
         const expectedItemText = dataHash[index]['text'];
 
-        const actualHeaderText = await menuItem.$('h5').getText();
-        const actualItemText = await menuItem.$('td > div').getText();
+        const actualHeaderText = await menuItem.$(menuLeft.menuItem.menuItemHeaderCssSelctor).getText();
+        const actualItemText = await menuItem.$(menuLeft.menuItem.menuItemTextCssSelector).getText();
 
         expect(expectedHeaderText,
             `Expect the text of the menu-item header to equal ${expectedHeaderText}`)
@@ -40,7 +41,7 @@ Given('I see the menu-items in the left menu with text:', async function (dataTa
 });
 
 Given('each menu item contains a icon element', async function () {
-    const menuItems: ElementFinder[] = await menuLeft.getAllMenuItems();
+    const menuItems: ElementFinder[] = await menuLeft.menuItem.getAllMenuItems();
 
     for (const item of menuItems) {
         const iconIsPresent: boolean = await item.$('i').isPresent();
@@ -53,7 +54,7 @@ Given('each menu item contains a icon element', async function () {
 
 Given('the menu items of in the left menu have the following attributes:', async function (dataTable) {
     const dataRows = dataTable.rows();
-    const menuItems: ElementFinder[] = await menuLeft.getAllMenuItems();
+    const menuItems: ElementFinder[] = await menuLeft.menuItem.getAllMenuItems();
 
     for (let i = 0; i < menuItems.length; i++) {
         const attribute = dataRows[i][0];
@@ -65,3 +66,7 @@ Given('the menu items of in the left menu have the following attributes:', async
             .to.equal(actualAttributeValue);
     };
 }); 
+
+Given('I click the blue-button in menu-item {string}', async function (menuItemName: string) {
+    const menuItem = await menuLeft.menuItem.clickBlueButton(menuItemName);
+})

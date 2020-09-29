@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { Given } from "cucumber";
-import { DelayedActionsDropDown } from '../../page-objects/dropdown.po';
+import { DelayedActionsDropDown } from '../../page-objects/dropdowns/dropdown.po';
 import { DelayedActions } from '../../page-objects/delayed-actions.po';
 import { waitForAlert, waitForElementInDOM, waitForElementNotInDOM } from "../../helpers/ec.helpers";
 import { getAlertText } from '../../helpers/browser.helpers'
